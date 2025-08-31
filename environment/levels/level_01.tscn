@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ciin251ecvwj6"]
+[gd_scene load_steps=11 format=3 uid="uid://ciin251ecvwj6"]
 
-[ext_resource type="Script" uid="uid://ch423d7aciqht" path="res://scripts/level_01.gd" id="1_32ihy"]
+[ext_resource type="Script" uid="uid://ch423d7aciqht" path="res://scripts/levels/level_01.gd" id="1_32ihy"]
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_fmn4l"]
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="2_rdraa"]
-[ext_resource type="Script" uid="uid://cliagejculu8e" path="res://environment/death_zone.gd" id="3_vuu73"]
+[ext_resource type="Script" uid="uid://cliagejculu8e" path="res://scripts/death_zone.gd" id="3_vuu73"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://environment/victory_zone.gd" id="4_roo3c"]
 [ext_resource type="AudioStream" uid="uid://cdetvufywa2hs" path="res://assets/sound/backgroundMusic.mp3" id="5_pl0a7"]
+[ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="7_sg80t"]
 
 [sub_resource type="Environment" id="Environment_rdraa"]
 background_mode = 1
@@ -69,6 +70,23 @@ shape = SubResource("BoxShape3D_vuu73")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_pl0a7")
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_sg80t")]
+
+[node name="CountDownTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_right = 39.0
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]

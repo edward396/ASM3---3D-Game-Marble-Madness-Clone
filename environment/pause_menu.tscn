@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://rur8ocsxec2j"]
+
+[ext_resource type="Script" uid="uid://bf5ymquuqa0y6" path="res://scripts/pause_menu.gd" id="1_6pryn"]
+[ext_resource type="Texture2D" uid="uid://c6tsqyfh0mtos" path="res://assets/buttons/Resume Button.png" id="1_qrl3l"]
+[ext_resource type="Texture2D" uid="uid://5i2dx8l5rskp" path="res://assets/buttons/Exit Button.png" id="2_6pryn"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_6pryn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -55.0
+offset_right = 194.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Paused" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_right = 55.5
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Paused"
+
+[node name="ResumeButton" type="Button" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -45.0
+offset_right = 64.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/icon_max_width = 120
+icon = ExtResource("1_qrl3l")
+
+[node name="ExitButton" type="Button" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = 14.0
+offset_right = 56.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/icon_max_width = 100
+icon = ExtResource("2_6pryn")
