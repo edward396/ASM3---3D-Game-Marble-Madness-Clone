@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://oo5jc6lwxvxn" path="res://assets/models/pixar-ball.obj" id="1_nwasv"]
 [ext_resource type="Texture2D" uid="uid://dnwju1pgjltnn" path="res://assets/textures/pixar-ball.png" id="1_w0m6g"]
-[ext_resource type="Script" uid="uid://cg3x8vts0osmh" path="res://ball/ball.gd" id="1_ww0x1"]
+[ext_resource type="Script" uid="uid://cg3x8vts0osmh" path="res://scripts/ball.gd" id="1_ww0x1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ww0x1"]
 friction = 4.0

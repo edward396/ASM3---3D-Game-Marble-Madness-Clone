@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var play_again_btn: Button = $Control/Panel/PlayAgainButton
 @onready var exit_btn: Button = $Control/Panel/ExitButton
 
+
 func _enter_tree():
 	visible = false
 

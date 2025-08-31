@@ -5,6 +5,11 @@ extends Node3D
 @onready var timer_label: Label = $TimerLabel
 @onready var game_timer: Timer = $CountDownTimer
 @onready var game_over_menu: CanvasLayer = $GameOverMenu
+@onready var beep_sound: AudioStreamPlayer = $BeepSound
+@onready var start_sound: AudioStreamPlayer = $StartSound
+@onready var time_up_sound: AudioStreamPlayer = $TimeUpSound
+@onready var countdown_label: Label = $CountDownLabel
+
 
 var time_left: int = 60
 var update_timer: Timer
@@ -15,14 +20,18 @@ func _ready():
 	#Play bg music
 	if bg_music and bg_music.stream:
 		bg_music.play()
+
+	# start_sound.play()
 	
+	#UI
+	game_over_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	game_over_menu.visible = false
 
 	#Always unpause when first enter the level
 	get_tree().paused = false
 	pause_menu.hide()
 
-	#Reset timer
+	#Initialize timer
 	time_left = int(game_timer.wait_time)
 	timer_label.text = format_time(time_left)
 
@@ -35,7 +44,29 @@ func _ready():
 	update_timer.timeout.connect(_on_update_time)
 
 	#count the whole time
-	game_timer.start()
+	#game_timer.start()
+
+	_start_countdown()
+
+func _start_countdown() -> void:
+	# Pause gameplay, nhưng UI & âm thanh vẫn chạy
+	get_tree().paused = true
+	countdown_label.visible = true
+	
+	for n in [3, 2, 1]:
+		countdown_label.text = str(n)
+		beep_sound.play()
+		await get_tree().create_timer(1.0, true).timeout # true = chạy khi paused
+		
+	countdown_label.text = "GO!"
+	start_sound.play()
+	await get_tree().create_timer(0.5, true).timeout
+
+	# Bắt đầu chơi
+	countdown_label.visible = false
+	get_tree().paused = false
+	update_timer.start() # bắt đầu tick mỗi giây
+	game_timer.start() # bắt đầu mốc hết giờ
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
@@ -73,6 +104,9 @@ func _on_game_over():
 	
 	get_tree().paused = true # tạm dừng gameplay
 	game_over_menu.visible = true
+	
+	time_up_sound.play()
+
 	
 func format_time(seconds: int) -> String:
 	var mins = seconds / 60
