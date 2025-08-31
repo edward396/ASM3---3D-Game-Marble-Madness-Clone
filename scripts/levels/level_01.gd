@@ -4,13 +4,19 @@ extends Node3D
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var timer_label: Label = $TimerLabel
 @onready var game_timer: Timer = $CountDownTimer
+@onready var game_over_menu: CanvasLayer = $GameOverMenu
 
 var time_left: int = 60
+var update_timer: Timer
+var is_game_over := false
+
 
 func _ready():
 	#Play bg music
 	if bg_music and bg_music.stream:
 		bg_music.play()
+	
+	game_over_menu.visible = false
 
 	#Always unpause when first enter the level
 	get_tree().paused = false
@@ -21,12 +27,15 @@ func _ready():
 	timer_label.text = format_time(time_left)
 
 	#Connect timer signal
-	var update_timer = Timer.new()
+	update_timer = Timer.new()
 	update_timer.wait_time = 1.0
 	update_timer.one_shot = false
 	update_timer.autostart = true
 	add_child(update_timer)
 	update_timer.timeout.connect(_on_update_time)
+
+	#count the whole time
+	game_timer.start()
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
@@ -45,15 +54,26 @@ func _toggle_pause():
 			pause_menu.open_menu()
 
 func _on_update_time():
-	time_left -= 1
-	if time_left >= 0:
-		timer_label.text = format_time(time_left)
+	if is_game_over: return
+
+	time_left = max(0, time_left - 1)
+	timer_label.text = format_time(time_left)
+	
+	if time_left == 0:
+		_on_game_over()
 
 #Update Game Over scene later
 func _on_game_over():
-	#for now just reload the level
-	get_tree().reload_current_scene()
-
+	if is_game_over: return
+	
+	is_game_over = true
+	
+	if update_timer:
+		update_timer.stop()
+	
+	get_tree().paused = true # tạm dừng gameplay
+	game_over_menu.visible = true
+	
 func format_time(seconds: int) -> String:
 	var mins = seconds / 60
 	var secs = seconds % 60

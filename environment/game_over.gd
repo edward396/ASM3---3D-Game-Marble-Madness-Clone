@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var resume_btn: Button = $Control/Panel/ResumeButton
+@onready var play_again_btn: Button = $Control/Panel/PlayAgainButton
 @onready var exit_btn: Button = $Control/Panel/ExitButton
 
 func _enter_tree():
@@ -12,19 +12,19 @@ func _ready():
 	visible = false
 
 	#Connect the buttons
-	resume_btn.pressed.connect(_on_resume_pressed)
+	play_again_btn.pressed.connect(_on_play_again_pressed)
 	exit_btn.pressed.connect(_on_exit_pressed)
 
 func open_menu():
 	visible = true
-	resume_btn.grab_focus()
+	play_again_btn.grab_focus()
 
 func close_menu():
 	visible = false
 
-func _on_resume_pressed():
+func _on_play_again_pressed():
 	get_tree().paused = false
-	close_menu()
+	get_tree().change_scene_to_file("res://environment/levels/level_01.tscn")
 
 func _on_exit_pressed():
 	get_tree().paused = false

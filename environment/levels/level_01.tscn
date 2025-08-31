@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ciin251ecvwj6"]
+[gd_scene load_steps=12 format=3 uid="uid://ciin251ecvwj6"]
 
 [ext_resource type="Script" uid="uid://ch423d7aciqht" path="res://scripts/levels/level_01.gd" id="1_32ihy"]
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_fmn4l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://environment/victory_zone.gd" id="4_roo3c"]
 [ext_resource type="AudioStream" uid="uid://cdetvufywa2hs" path="res://assets/sound/backgroundMusic.mp3" id="5_pl0a7"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="7_sg80t"]
+[ext_resource type="PackedScene" uid="uid://lsn8rnrrejyk" path="res://environment/game_over.tscn" id="8_356wj"]
 
 [sub_resource type="Environment" id="Environment_rdraa"]
 background_mode = 1
@@ -87,6 +88,8 @@ offset_right = 39.0
 offset_bottom = 54.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 60
+
+[node name="GameOverMenu" parent="." instance=ExtResource("8_356wj")]
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]
