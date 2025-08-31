@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dwg18u2afrln3"]
-
-[node name="Level_1" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

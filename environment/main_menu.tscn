@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dum7j0gkfxskh"]
+
+[ext_resource type="Script" uid="uid://bg6qvse0f5q5n" path="res://scripts/main_menu.gd" id="1_hfmus"]
+[ext_resource type="Texture2D" uid="uid://8en7parecgy6" path="res://assets/marble bg.jpg" id="2_1sy2y"]
+[ext_resource type="Texture2D" uid="uid://b2iqr8pphu81h" path="res://assets/buttons/Play Button.png" id="3_hfmus"]
+[ext_resource type="Texture2D" uid="uid://cd834sf24cfon" path="res://assets/buttons/Quit Button.png" id="4_ycuad"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hfmus")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 156.0
+offset_top = -2.0
+offset_right = 1116.0
+offset_bottom = 718.0
+texture = ExtResource("2_1sy2y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 793.0
+offset_top = 340.0
+offset_right = 1101.0
+offset_bottom = 578.0
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 300
+icon = ExtResource("3_hfmus")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 511.0
+offset_right = 1019.0
+offset_bottom = 719.0
+
+[node name="ExitButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/icon_max_width = 150
+icon = ExtResource("4_ycuad")

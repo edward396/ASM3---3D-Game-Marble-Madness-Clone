@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0cxdf4djeqvn"
+path="res://.godot/imported/slide down.ogg-8175e5990c033a7641b2d36434db21f4.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/slide down.ogg"
+dest_files=["res://.godot/imported/slide down.ogg-8175e5990c033a7641b2d36434db21f4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
