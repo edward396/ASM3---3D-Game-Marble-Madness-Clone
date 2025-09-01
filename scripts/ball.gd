@@ -22,9 +22,9 @@ func _physics_process(delta):
 	#var old_camera_pos = $CameraRig.global_transform.origin
 	#var ball_pos = global_transform.origin
 	#var new_camera_pos = lerp(old_camera_pos, ball_pos, 0.01)
-	$CameraRig.global_transform.origin = global_transform.origin
+	camera.global_transform.origin = global_transform.origin
 
-	$FloorCheck.global_transform.origin = global_transform.origin
+	floor_check.global_transform.origin = global_transform.origin
 	
 	if Input.is_action_pressed("forward"):
 		angular_velocity.x -= rolling_force * delta

@@ -133,7 +133,7 @@ script = ExtResource("4_roo3c")
 NEXT_LEVEL = "uid://cbape77igbyxo"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestVictoryZone"]
-transform = Transform3D(0.989304, -0.145675, 0.00745041, 0.145731, 0.984912, -0.09334, 0.0062592, 0.0934275, 0.995605, 6.60781, 0.373393, -1.11406)
+transform = Transform3D(0.989304, -0.145675, 0.00745039, 0.145731, 0.984912, -0.09334, 0.0062592, 0.0934275, 0.995605, 2.36049, 0.373393, 18.5097)
 shape = SubResource("BoxShape3D_vuu73")
 
 [node name="Round1" type="Label" parent="."]

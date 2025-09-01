@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Marble Madness"
-run/main_scene="uid://dum7j0gkfxskh"
+run/main_scene="uid://cbape77igbyxo"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [input]
