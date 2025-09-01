@@ -90,7 +90,7 @@ theme_override_font_sizes/font_size = 60
 metadata/_edit_use_anchors_ = true
 
 [node name="CountDownTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 240.0
 one_shot = true
 autostart = true
 
