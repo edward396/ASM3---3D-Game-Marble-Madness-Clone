@@ -4,17 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b2iqr8pphu81h" path="res://assets/buttons/Play Button.png" id="2_qom6p"]
 [ext_resource type="Texture2D" uid="uid://5i2dx8l5rskp" path="res://assets/buttons/Exit Button.png" id="3_nucah"]
 
-[node name="Victory" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="YouWin" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_wxm8x")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
