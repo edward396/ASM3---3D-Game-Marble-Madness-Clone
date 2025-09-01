@@ -140,6 +140,15 @@ NEXT_LEVEL = "uid://cfborojlxsgr7"
 transform = Transform3D(0.989304, -0.145675, 0.00745042, 0.145731, 0.984912, -0.09334, 0.00625919, 0.0934275, 0.995605, -1.46922, -0.0687776, -11.2354)
 shape = SubResource("BoxShape3D_gu1mg")
 
+[node name="Round2" type="Label" parent="."]
+offset_left = 20.0
+offset_right = 219.0
+offset_bottom = 69.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Round 2"
+
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TestVictoryZone" to="TestVictoryZone" method="_on_body_entered"]

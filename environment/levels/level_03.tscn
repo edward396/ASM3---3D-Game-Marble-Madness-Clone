@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfborojlxsgr7"]
+[gd_scene load_steps=17 format=3 uid="uid://cfborojlxsgr7"]
 
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_r1ugn"]
+[ext_resource type="Script" uid="uid://delmty8i1so6g" path="res://scripts/levels/level_03.gd" id="1_rx6uv"]
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="2_o7h0x"]
 [ext_resource type="Script" uid="uid://cliagejculu8e" path="res://scripts/death_zone.gd" id="3_5ixol"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://scripts/victory_zone.gd" id="4_rx6uv"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="5_dq3jb"]
 [ext_resource type="PackedScene" uid="uid://lsn8rnrrejyk" path="res://environment/game_over.tscn" id="6_fr5b1"]
-[ext_resource type="AudioStream" uid="uid://bti7xwvhd6k3h" path="res://assets/sound/backgroundMusicLevel02.mp3" id="7_5cfje"]
 [ext_resource type="AudioStream" uid="uid://bvhchhnqv46i0" path="res://assets/sound/start.ogg" id="8_kubyn"]
+[ext_resource type="AudioStream" uid="uid://bgbmfm22f8gtw" path="res://assets/sound/backgroundMusicLevel03.mp3" id="8_rx6uv"]
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="9_rwdn4"]
 [ext_resource type="Script" uid="uid://4orv2v5xpnns" path="res://scripts/final_level_victory_zone.gd" id="10_5ixol"]
 [ext_resource type="PackedScene" uid="uid://c7x1io8m6wyut" path="res://environment/you_win.tscn" id="10_o7h0x"]
@@ -36,6 +37,7 @@ size = Vector3(2, 1, 2)
 size = Vector3(2, 1, 2)
 
 [node name="level_03" type="Node3D"]
+script = ExtResource("1_rx6uv")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_r1ugn")
@@ -98,7 +100,7 @@ autostart = true
 [node name="GameOverMenu" parent="." instance=ExtResource("6_fr5b1")]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_5cfje")
+stream = ExtResource("8_rx6uv")
 volume_db = -10.0
 
 [node name="TimeUpSound" type="AudioStreamPlayer" parent="."]
@@ -139,6 +141,15 @@ transform = Transform3D(0.989304, -0.145675, 0.00745042, 0.145731, 0.984912, -0.
 shape = SubResource("BoxShape3D_mmfcv")
 
 [node name="YouWin" parent="." instance=ExtResource("10_o7h0x")]
+
+[node name="Round3" type="Label" parent="."]
+offset_left = 20.0
+offset_right = 219.0
+offset_bottom = 69.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Round 3"
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]

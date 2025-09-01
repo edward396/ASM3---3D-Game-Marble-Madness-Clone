@@ -133,8 +133,17 @@ script = ExtResource("4_roo3c")
 NEXT_LEVEL = "uid://cbape77igbyxo"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestVictoryZone"]
-transform = Transform3D(0.989304, -0.145675, 0.00745042, 0.145731, 0.984912, -0.09334, 0.00625922, 0.0934275, 0.995605, -0.304518, 0.373393, -0.372908)
+transform = Transform3D(0.989304, -0.145675, 0.00745042, 0.145731, 0.984912, -0.09334, 0.00625921, 0.0934275, 0.995605, 5.51473, 0.373393, -0.99686)
 shape = SubResource("BoxShape3D_vuu73")
+
+[node name="Round1" type="Label" parent="."]
+offset_left = 20.0
+offset_right = 219.0
+offset_bottom = 69.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Round 1"
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]
