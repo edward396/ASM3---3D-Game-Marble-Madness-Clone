@@ -13,7 +13,6 @@ config_version=5
 config/name="Marble Madness"
 run/main_scene="uid://dum7j0gkfxskh"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
 
 [input]
 

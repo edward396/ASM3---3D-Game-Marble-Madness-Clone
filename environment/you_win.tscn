@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7x1io8m6wyut"]
+
+[ext_resource type="Script" uid="uid://kebeh3cumj54" path="res://scripts/you_win.gd" id="1_wxm8x"]
+[ext_resource type="Texture2D" uid="uid://b2iqr8pphu81h" path="res://assets/buttons/Play Button.png" id="2_qom6p"]
+[ext_resource type="Texture2D" uid="uid://5i2dx8l5rskp" path="res://assets/buttons/Exit Button.png" id="3_nucah"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wxm8x")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -174.5
+offset_right = 168.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Congrats" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.153
+anchor_right = -0.153
+offset_left = 142.561
+offset_top = 56.9998
+offset_right = 290.561
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Congrats!"
+metadata/_edit_use_anchors_ = true
+
+[node name="You Win" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517804
+anchor_top = 0.669054
+anchor_right = 0.630564
+anchor_bottom = 0.669054
+offset_left = -134.5
+offset_top = -128.5
+offset_right = 86.5
+offset_bottom = -51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "YOU WON!"
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayAgainButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.590504
+anchor_top = 0.743553
+anchor_right = 0.591505
+anchor_bottom = 0.743553
+offset_left = -93.0
+offset_top = -68.5
+offset_right = 34.6626
+offset_bottom = -16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/icon_max_width = 120
+icon = ExtResource("2_qom6p")
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.578635
+anchor_top = 0.777938
+anchor_right = 0.578635
+anchor_bottom = 0.777938
+offset_left = -81.0
+offset_top = -9.5
+offset_right = 27.0
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/icon_max_width = 100
+icon = ExtResource("3_nucah")
+metadata/_edit_use_anchors_ = true

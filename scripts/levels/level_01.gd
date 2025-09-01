@@ -10,18 +10,14 @@ extends Node3D
 @onready var time_up_sound: AudioStreamPlayer = $TimeUpSound
 @onready var countdown_label: Label = $CountDownLabel
 
-
 var time_left: int = 60
 var update_timer: Timer
 var is_game_over := false
-
 
 func _ready():
 	#Play bg music
 	if bg_music and bg_music.stream:
 		bg_music.play()
-
-	# start_sound.play()
 	
 	#UI
 	game_over_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
@@ -43,9 +39,7 @@ func _ready():
 	add_child(update_timer)
 	update_timer.timeout.connect(_on_update_time)
 
-	#count the whole time
-	#game_timer.start()
-
+	#Count down 3 2 1
 	_start_countdown()
 
 func _start_countdown() -> void:
