@@ -5,6 +5,7 @@ extends RigidBody3D
 @onready var spawn_point: Node3D = %SpawnPoint
 @onready var floor_check: RayCast3D = $FloorCheck
 @onready var camera: Node3D = $CameraRig
+@onready var enemy: Node3D = $"../Enemy"  # Gán node kẻ thù
 
 var _spawn_transform: Transform3D
 
@@ -17,13 +18,8 @@ func _ready():
 	else:
 		_spawn_transform = global_transform
 
-
 func _physics_process(delta):
-	#var old_camera_pos = $CameraRig.global_transform.origin
-	#var ball_pos = global_transform.origin
-	#var new_camera_pos = lerp(old_camera_pos, ball_pos, 0.01)
 	camera.global_transform.origin = global_transform.origin
-
 	floor_check.global_transform.origin = global_transform.origin
 	
 	if Input.is_action_pressed("forward"):
@@ -39,10 +35,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and is_on_floor:
 		apply_central_impulse(Vector3.UP * jump_impulse)
 
-	#update the safest respawn point
+	if is_colliding_with_enemy():
+		apply_repel_force()
+
 	if is_on_floor:
 		_spawn_transform = global_transform
-
 
 func respawn():
 	freeze = true
@@ -52,10 +49,16 @@ func respawn():
 	
 	global_transform = _spawn_transform
 
-	# đồng bộ camera/floor check ngay lập tức (tránh lerp kéo ngược)
 	$CameraRig.global_transform.origin = global_transform.origin
 	$FloorCheck.global_transform.origin = global_transform.origin
 
-	#wait 1 physics frame
 	await get_tree().process_frame
 	freeze = false
+	
+func is_colliding_with_enemy() -> bool:
+	return global_transform.origin.distance_to(enemy.global_transform.origin) < 2.0 
+
+func apply_repel_force():
+	var repel_direction = (global_transform.origin - enemy.global_transform.origin).normalized()  # Hướng từ người chơi ra kẻ thù
+	var repel_force = 50.0  # Độ mạnh của lực đẩy
+	apply_central_impulse(repel_direction * repel_force)  

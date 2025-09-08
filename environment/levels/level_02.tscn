@@ -1,15 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbape77igbyxo"]
+[gd_scene load_steps=18 format=3 uid="uid://cbape77igbyxo"]
 
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_2bpfq"]
 [ext_resource type="Script" uid="uid://upojrra7tnjf" path="res://scripts/levels/level_02.gd" id="1_gu1mg"]
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="2_gu1mg"]
 [ext_resource type="Script" uid="uid://cliagejculu8e" path="res://scripts/death_zone.gd" id="3_hacgo"]
+[ext_resource type="PackedScene" uid="uid://dovea1lxt8a46" path="res://ball/enemy.tscn" id="4_hacgo"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://scripts/victory_zone.gd" id="4_vj2ul"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="5_mianr"]
+[ext_resource type="Script" uid="uid://b330bqf1bi08o" path="res://scripts/enemy.gd" id="5_vj2ul"]
 [ext_resource type="PackedScene" uid="uid://lsn8rnrrejyk" path="res://environment/game_over.tscn" id="6_hmu2k"]
 [ext_resource type="AudioStream" uid="uid://bti7xwvhd6k3h" path="res://assets/sound/backgroundMusicLevel02.mp3" id="7_2bpfq"]
 [ext_resource type="AudioStream" uid="uid://bvhchhnqv46i0" path="res://assets/sound/start.ogg" id="8_2obrr"]
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="9_x88r0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vj2ul"]
+size = Vector3(24.9995, 1.51903, 9.80927)
 
 [sub_resource type="Environment" id="Environment_2vcbr"]
 background_mode = 1
@@ -50,6 +55,20 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_gu1mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("4_hacgo")]
+transform = Transform3D(-0.627963, -0.778243, 0, 0.778243, -0.627963, 0, 0, 0, 1, -42.6937, -7.07578, -11.0226)
+script = ExtResource("5_vj2ul")
+
+[node name="Area3D2" type="Area3D" parent="Enemy"]
+transform = Transform3D(0.795474, 0.605989, 0, -0.605989, 0.795474, 0, 0, 0, 1, 0.796061, -0.116756, -0.515204)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/Area3D2"]
+transform = Transform3D(-0.022687, 0.999756, 0, -0.999756, -0.022687, 0, 0, 0, 1, -1.11361, -3.456, 2.50816)
+shape = SubResource("BoxShape3D_vj2ul")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy"]
+simplify_path = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, -0.433013, 0.25, 0, 5, 0)

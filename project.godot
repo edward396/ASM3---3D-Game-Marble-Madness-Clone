@@ -14,6 +14,10 @@ config/name="Marble Madness"
 run/main_scene="uid://cbape77igbyxo"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[dotnet]
+
+project/assembly_name="Marble Madness"
+
 [input]
 
 back={

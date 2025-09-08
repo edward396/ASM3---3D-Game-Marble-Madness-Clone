@@ -1,0 +1,49 @@
+extends CharacterBody3D
+
+@export var chase_speed: float = 2
+@onready var player: Node3D = $"../Ball"  # Gán node player (ball)
+@onready var chase_area: Area3D =  $Area3D2
+@onready var collision_area: Area3D = $ColliArea3D
+
+var _is_chasing: bool = false
+var _target_position: Vector3
+
+func _ready():
+	# Kết nối tín hiệu của Area3D để phát hiện khi người chơi vào khu vực
+	chase_area.body_entered.connect(_on_area_entered)
+	chase_area.body_exited.connect(_on_area_exited)
+	collision_area.body_entered.connect(_on_collision_with_player)
+
+func _physics_process(delta):
+	if _is_chasing:
+		_target_position = player.global_transform.origin
+		var direction = (_target_position - global_transform.origin).normalized()
+		
+		velocity = direction * chase_speed 
+		move_and_slide() 
+
+func _on_area_entered(body: Node):
+	if body == player:
+		start_chasing()
+
+func _on_area_exited(body: Node):
+	if body == player:
+		stop_chasing()
+
+func _on_collision_with_player(body: Node):
+	if body == player:
+		apply_repel_force(body)
+
+func start_chasing():
+	_is_chasing = true
+	_target_position = player.global_transform.origin 
+
+func stop_chasing():
+	_is_chasing = false
+	_target_position = Vector3.ZERO 
+ 
+func apply_repel_force(player: Node):
+	var direction = (global_transform.origin - player.global_transform.origin).normalized() 
+	var repel_force = 30.0 
+	move_and_slide() 
+	player.apply_central_impulse(-direction * repel_force)  
