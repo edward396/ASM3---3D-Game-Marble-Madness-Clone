@@ -35,8 +35,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and is_on_floor:
 		apply_central_impulse(Vector3.UP * jump_impulse)
 
-	if is_colliding_with_enemy():
-		apply_repel_force()
+	if enemy != null:
+		if is_colliding_with_enemy():
+			apply_repel_force()
 
 	if is_on_floor:
 		_spawn_transform = global_transform

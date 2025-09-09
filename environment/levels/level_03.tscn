@@ -1,17 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfborojlxsgr7"]
+[gd_scene load_steps=20 format=3 uid="uid://cfborojlxsgr7"]
 
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_r1ugn"]
 [ext_resource type="Script" uid="uid://delmty8i1so6g" path="res://scripts/levels/level_03.gd" id="1_rx6uv"]
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="2_o7h0x"]
 [ext_resource type="Script" uid="uid://cliagejculu8e" path="res://scripts/death_zone.gd" id="3_5ixol"]
+[ext_resource type="PackedScene" uid="uid://dovea1lxt8a46" path="res://ball/enemy.tscn" id="4_dq3jb"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://scripts/victory_zone.gd" id="4_rx6uv"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="5_dq3jb"]
+[ext_resource type="Script" uid="uid://b330bqf1bi08o" path="res://scripts/enemy.gd" id="5_fr5b1"]
 [ext_resource type="PackedScene" uid="uid://lsn8rnrrejyk" path="res://environment/game_over.tscn" id="6_fr5b1"]
 [ext_resource type="AudioStream" uid="uid://bvhchhnqv46i0" path="res://assets/sound/start.ogg" id="8_kubyn"]
 [ext_resource type="AudioStream" uid="uid://bgbmfm22f8gtw" path="res://assets/sound/backgroundMusicLevel03.mp3" id="8_rx6uv"]
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="9_rwdn4"]
 [ext_resource type="Script" uid="uid://4orv2v5xpnns" path="res://scripts/final_level_victory_zone.gd" id="10_5ixol"]
 [ext_resource type="PackedScene" uid="uid://c7x1io8m6wyut" path="res://environment/you_win.tscn" id="10_o7h0x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cfje"]
+size = Vector3(3.92907, 1.51903, 3.17986)
 
 [sub_resource type="Environment" id="Environment_8yov6"]
 background_mode = 1
@@ -31,7 +36,8 @@ adjustment_saturation = 1.2
 size = Vector3(150, 1, 150)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sv13p"]
-size = Vector3(2, 1, 2)
+margin = 0.0
+size = Vector3(0.815641, 0.563937, 1.0138)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmfcv"]
 size = Vector3(2, 1, 2)
@@ -42,16 +48,31 @@ script = ExtResource("1_rx6uv")
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_r1ugn")
 cell_size = Vector3(4, 4, 4)
+cell_octant_size = 7
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
 data = {
-"cells": PackedInt32Array(0, 0, 655360, 0, 1, 1441793, 65535, 0, 655361, 1, 0, 1, 1, 65535, 2, 1, 1, 1441794, 65535, 1, 655362, 65535, 65535, 1048578, 0, 65535, 1048576, 0, 65534, 0, 0, 65533, 0)
+"cells": PackedInt32Array(0, 0, 655360, 0, 1, 1441793, 65535, 0, 655361, 1, 0, 1, 1, 65535, 2, 1, 1, 1441794, 65535, 1, 655362, 65535, 65535, 1048578, 0, 65535, 1048576, 0, 65534, 0, 0, 65533, 0, 65535, 65532, 1048580, 65535, 65533, 1048580, 65535, 65534, 1048580, 1, 65529, 1441796, 1, 65528, 1441796, 65535, 65528, 1048580, 65535, 65530, 1048580, 65535, 65531, 1048580, 65535, 65529, 1048580, 65536, 65527, 393220, 131070, 65530, 1048580, 131070, 65529, 1048580, 131075, 65531, 1114116, 131075, 65530, 1114116, 131075, 65529, 1114116, 65538, 65529, 1441796, 196612, 65529, 1114116, 196612, 65528, 1114116, 196612, 65527, 1114116, 131075, 65527, 1114116, 131075, 65526, 1114116, 131075, 65525, 1441796, 131075, 65524, 1441796, 196612, 65525, 1441796, 196612, 65524, 1441796, 262149, 65524, 1441796, 131074, 65528, 1245188, 196612, 65526, 1114116, 262149, 65523, 1441796, 262149, 65522, 1441796, 262149, 65521, 1114116, 196612, 65521, 1114116, 131074, 65521, 1048576, 131073, 65521, 1048576, 131072, 65521, 1048576, 196607, 65521, 655361, 196607, 65520, 655361, 196607, 65522, 655362, 131072, 65522, 1441794, 131073, 65522, 1441793, 131074, 65522, 1441794, 131074, 65520, 2, 131073, 65520, 1441794, 131072, 65520, 655362, 131075, 65521, 131072, 131072, 65518, 1441797, 0, 65518, 1048576, 65535, 65518, 1048576, 65534, 65518, 1048576, 65535, 65519, 1048576, 0, 65519, 1048576, 65533, 65519, 1048576, 65534, 65519, 1048576, 65533, 65518, 1048576, 0, 65517, 1048576, 65534, 65517, 1048576, 65535, 65517, 1048576, 65533, 65517, 1048576, 65535, 65516, 1048577, 65534, 65516, 1048577, 0, 65516, 1048577, 1, 65516, 2, 1, 65517, 1, 1, 65518, 1, 1, 65519, 1441794, 65533, 65516, 1048578)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_o7h0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_dq3jb")]
+transform = Transform3D(-0.627963, -0.778243, 0, 0.778243, -0.627963, 0, 0, 0, 1, 0.234575, 6.80793, -72.0502)
+script = ExtResource("5_fr5b1")
+
+[node name="Area3D2" type="Area3D" parent="Enemy2"]
+transform = Transform3D(0.795474, 0.605989, 0, -0.605989, 0.795474, 0, 0, 0, 1, 0.796061, -0.116756, -0.515204)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy2/Area3D2"]
+transform = Transform3D(-0.0226868, 0.999756, 0, -0.999756, -0.0226868, 0, 0, 0, 1, 0.400749, -0.0115311, 0.149536)
+shape = SubResource("BoxShape3D_5cfje")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy2"]
+simplify_path = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, -0.433013, 0.25, 0, 5, 0)
@@ -70,11 +91,11 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -50, 0)
 shape = SubResource("BoxShape3D_ytdme")
 
 [node name="VictoryZone" type="Area3D" parent="."]
-transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, 0, 0, 0)
+transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, -0.714588, 10.5891, -49.3497)
 script = ExtResource("4_rx6uv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VictoryZone"]
-transform = Transform3D(0.999824, -0.0183498, -0.00398634, 0.0183346, 0.999825, -0.00381148, 0.00405549, 0.00373772, 0.999984, -238.088, -16.1609, -155.368)
+transform = Transform3D(0.999817, -0.0183498, -0.00398649, 0.0183346, 0.999825, -0.00381148, 0.00405613, 0.00373771, 0.99998, -4.7994, 8.23309, -52.6922)
 shape = SubResource("BoxShape3D_sv13p")
 
 [node name="TimerLabel" type="Label" parent="."]
@@ -133,11 +154,11 @@ theme_override_font_sizes/font_size = 70
 metadata/_edit_use_anchors_ = true
 
 [node name="TestVictoryZone" type="Area3D" parent="."]
-transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, 0, 0, 0)
+transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, -12.262, 0.307634, -71.1706)
 script = ExtResource("10_5ixol")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestVictoryZone"]
-transform = Transform3D(0.989304, -0.145675, 0.00745042, 0.145731, 0.984912, -0.09334, 0.00625919, 0.0934275, 0.995605, -1.46922, -0.0687776, -11.2354)
+transform = Transform3D(0.989304, -0.145675, 0.00745042, 0.145731, 0.984912, -0.09334, 0.0062592, 0.0934275, 0.995605, 0.592574, 0.51065, -2.64219)
 shape = SubResource("BoxShape3D_mmfcv")
 
 [node name="YouWin" parent="." instance=ExtResource("10_o7h0x")]
