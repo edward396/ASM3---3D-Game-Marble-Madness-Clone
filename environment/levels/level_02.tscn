@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://db6h8d1tyxqci" path="res://ball/enemy.tscn" id="4_hacgo"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://scripts/victory_zone.gd" id="4_vj2ul"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="5_mianr"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="5_vj2ul"]
+[ext_resource type="Script" uid="uid://b330bqf1bi08o" path="res://scripts/enemy.gd" id="5_vj2ul"]
 [ext_resource type="PackedScene" uid="uid://lsn8rnrrejyk" path="res://environment/game_over.tscn" id="6_hmu2k"]
 [ext_resource type="AudioStream" uid="uid://bti7xwvhd6k3h" path="res://assets/sound/backgroundMusicLevel02.mp3" id="7_2bpfq"]
 [ext_resource type="AudioStream" uid="uid://bvhchhnqv46i0" path="res://assets/sound/start.ogg" id="8_2obrr"]
