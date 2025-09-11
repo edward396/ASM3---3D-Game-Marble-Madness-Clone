@@ -10,13 +10,13 @@ rough = true
 bounce = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w0m6g"]
-radius = 1.03414
+radius = 0.998738
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww0x1"]
 albedo_texture = ExtResource("1_w0m6g")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_biv8x"]
-radius = 1.03713
+radius = 1.00431
 
 [node name="Ball" type="RigidBody3D"]
 mass = 100.0
@@ -39,11 +39,11 @@ current = true
 fov = 98.4375
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
-target_position = Vector3(0, -2, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_biv8x")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

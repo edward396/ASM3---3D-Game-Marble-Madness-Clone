@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://upojrra7tnjf" path="res://scripts/levels/level_02.gd" id="1_gu1mg"]
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="2_gu1mg"]
 [ext_resource type="Script" uid="uid://cliagejculu8e" path="res://scripts/death_zone.gd" id="3_hacgo"]
-[ext_resource type="PackedScene" uid="uid://dovea1lxt8a46" path="res://ball/enemy.tscn" id="4_hacgo"]
+[ext_resource type="PackedScene" uid="uid://bhwe2idxl5vdk" path="res://ball/enemy.tscn" id="4_hacgo"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://scripts/victory_zone.gd" id="4_vj2ul"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="5_mianr"]
 [ext_resource type="Script" uid="uid://b330bqf1bi08o" path="res://scripts/enemy.gd" id="5_vj2ul"]
@@ -55,6 +55,8 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_gu1mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+rolling_force = 40.0
+jump_impulse = 100.0
 
 [node name="Enemy" parent="." instance=ExtResource("4_hacgo")]
 transform = Transform3D(-0.627963, -0.778243, 0, 0.778243, -0.627963, 0, 0, 0, 1, -42.6937, -7.07578, -11.0226)
