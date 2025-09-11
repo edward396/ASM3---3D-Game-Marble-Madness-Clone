@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @export var rolling_force: float = 40.0
-@export var jump_impulse: float = 200.0
+@export var jump_impulse: float = 100.0
 @onready var spawn_point: Node3D = %SpawnPoint
 @onready var floor_check: RayCast3D = $FloorCheck
 @onready var camera: Node3D = $CameraRig
@@ -35,9 +35,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and is_on_floor:
 		apply_central_impulse(Vector3.UP * jump_impulse)
 
-	if is_colliding_with_enemy():
-		apply_repel_force()
-
 	if is_on_floor:
 		_spawn_transform = global_transform
 
@@ -55,10 +52,10 @@ func respawn():
 	await get_tree().process_frame
 	freeze = false
 	
-func is_colliding_with_enemy() -> bool:
-	return global_transform.origin.distance_to(enemy.global_transform.origin) < 2.0 
 
-func apply_repel_force():
-	var repel_direction = (global_transform.origin - enemy.global_transform.origin).normalized()  # Hướng từ người chơi ra kẻ thù
-	var repel_force = 50.0  # Độ mạnh của lực đẩy
-	apply_central_impulse(repel_direction * repel_force)  
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("enemy"):
+		print('yes')
+		var repel_direction = (global_transform.origin - body.global_transform.origin).normalized()  # Hướng từ người chơi ra kẻ thù
+		var repel_force = 500.0  # Độ mạnh của lực đẩy
+		apply_central_impulse(repel_direction * repel_force)   # Replace with function body.

@@ -1,20 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://db6h8d1tyxqci"]
+[gd_scene load_steps=4 format=3 uid="uid://bhwe2idxl5vdk"]
 
-[ext_resource type="PackedScene" uid="uid://cnrksx4s1wr3e" path="res://ball/godot_plush_model.tscn" id="1_lyr5s"]
+[ext_resource type="ArrayMesh" uid="uid://oo5jc6lwxvxn" path="res://assets/models/pixar-ball.obj" id="3_5dp3w"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w0m6g"]
-radius = 0.923933
+radius = 1.07083
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyr5s"]
+albedo_color = Color(0.83, 0.0498, 0.0498, 1)
 
 [node name="Enemy" type="CharacterBody3D"]
 
 [node name="ColliArea3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColliArea3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.479642, 0.547476, -0.0193186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0309334, 9.53674e-07, -0.140718)
 shape = SubResource("SphereShape3D_w0m6g")
 
-[node name="godot_plush_model" parent="." instance=ExtResource("1_lyr5s")]
-transform = Transform3D(-0.642788, 0.766044, 0, -0.766044, -0.642788, 0, 0, 0, 1, 0, 1, 0)
+[node name="Model" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_lyr5s")
+mesh = ExtResource("3_5dp3w")
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
 
