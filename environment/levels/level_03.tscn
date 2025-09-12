@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cfborojlxsgr7"]
+[gd_scene load_steps=26 format=3 uid="uid://cfborojlxsgr7"]
 
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_r1ugn"]
 [ext_resource type="Script" uid="uid://delmty8i1so6g" path="res://scripts/levels/level_03.gd" id="1_rx6uv"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="9_rwdn4"]
 [ext_resource type="Script" uid="uid://4orv2v5xpnns" path="res://scripts/final_level_victory_zone.gd" id="10_5ixol"]
 [ext_resource type="PackedScene" uid="uid://c7x1io8m6wyut" path="res://environment/you_win.tscn" id="10_o7h0x"]
+[ext_resource type="PackedScene" uid="uid://c4um0fgvxp4gk" path="res://environment/platforms/moving_platform_safety_3.tscn" id="20_sv13p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cfje"]
 margin = 0.0
@@ -240,6 +241,10 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Round 3"
+
+[node name="moving_platform_safety3" parent="." instance=ExtResource("20_sv13p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98034, -43.476, -282.475)
+safe_position = Vector3(-11.638, -32.895, -256.07)
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]
