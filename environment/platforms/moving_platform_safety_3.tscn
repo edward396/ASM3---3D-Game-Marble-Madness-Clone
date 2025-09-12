@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://f3ycj6y02n0" path="res://environment/platforms/moving_platform_safety_3.gd" id="1_e1brv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uoyjx"]
-size = Vector3(100, 1, 60)
+size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1brv"]
-size = Vector3(100, 1, 60)
+size = Vector3(100, 1, 100)
 
 [node name="moving_platform_safety3" type="Area3D"]
 script = ExtResource("1_e1brv")

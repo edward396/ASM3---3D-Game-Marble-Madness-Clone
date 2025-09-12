@@ -1,18 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://w75wbet3ox83"]
-
-[ext_resource type="Script" uid="uid://m0i1oobedlk8" path="res://animatable_body_3d.gd" id="1_pxrju"]
+[gd_scene load_steps=4 format=3 uid="uid://bij1psrlti5sh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n4jik"]
-size = Vector3(5, 0.2, 5)
+size = Vector3(8, 0.2, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxrju"]
 albedo_color = Color(1, 0.623529, 0.282353, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1b32k"]
-size = Vector3(5, 0.2, 5)
+size = Vector3(8, 0.2, 8)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D"]
-script = ExtResource("1_pxrju")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00389385, 0, 0.00230742)

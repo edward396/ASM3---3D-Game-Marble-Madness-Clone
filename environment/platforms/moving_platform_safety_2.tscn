@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bm4t38ctxlvqc" path="res://environment/platforms/moving_platform_safety_2.gd" id="1_p166n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wl0y6"]
-size = Vector3(60, 1, 50)
+size = Vector3(110.528, 1, 54.0575)
 
 [sub_resource type="BoxMesh" id="BoxMesh_p166n"]
 size = Vector3(60, 1, 50)
@@ -12,6 +12,7 @@ size = Vector3(60, 1, 50)
 script = ExtResource("1_p166n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2642, 0, 2.02875)
 shape = SubResource("BoxShape3D_wl0y6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
