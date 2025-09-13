@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbape77igbyxo"]
+[gd_scene load_steps=28 format=3 uid="uid://cbape77igbyxo"]
 
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_2bpfq"]
 [ext_resource type="Script" uid="uid://upojrra7tnjf" path="res://scripts/levels/level_02.gd" id="1_gu1mg"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="9_x88r0"]
 [ext_resource type="PackedScene" uid="uid://ckgxyvsvgtt8l" path="res://environment/platforms/moving_platform_safety.tscn" id="18_2vcbr"]
 [ext_resource type="PackedScene" uid="uid://d0unmwvvnu5jl" path="res://environment/platforms/moving_platform_safety_2.tscn" id="19_ltr1k"]
+[ext_resource type="PackedScene" uid="uid://cqmccfjp74nd8" path="res://ball/character_body_3d.tscn" id="20_hy03o"]
+[ext_resource type="Script" uid="uid://nf2rl2d37kyj" path="res://scripts/character_body_3d.gd" id="21_ruphi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vj2ul"]
 size = Vector3(24.9995, 1.51903, 9.80927)
@@ -45,6 +47,10 @@ size = Vector3(2, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gu1mg"]
 size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_18frl"]
+margin = 0.0
+size = Vector3(9.71346, 18.8656, 31.9761)
 
 [node name="level_02" type="Node3D"]
 script = ExtResource("1_gu1mg")
@@ -89,7 +95,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_gu1mg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.969, 2.02027, 19.9063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77355, 24.8702, 19.9063)
 
 [node name="Enemy" parent="." instance=ExtResource("4_hacgo")]
 transform = Transform3D(-0.627963, -0.778243, 0, 0.778243, -0.627963, 0, 0, 0, 1, -42.6937, -7.07578, -11.0226)
@@ -122,12 +128,12 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -50, 0)
 shape = SubResource("BoxShape3D_ltr1k")
 
 [node name="VictoryZone" type="Area3D" parent="."]
-transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, 0, 0, 0)
+transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, 162.184, 10.4016, 0.0124276)
 script = ExtResource("4_vj2ul")
 NEXT_LEVEL = "uid://cfborojlxsgr7"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VictoryZone"]
-transform = Transform3D(0.999699, -0.0183937, -0.0160981, 0.0183346, 0.999825, -0.00381148, 0.0161654, 0.00351518, 0.999859, 174.886, -5.78331, -18.8304)
+transform = Transform3D(0.999699, -0.0183937, -0.0160981, 0.0183346, 0.999825, -0.00381148, 0.0161654, 0.00351518, 0.999859, 14.3454, -12.4264, -0.189091)
 shape = SubResource("BoxShape3D_wh50u")
 
 [node name="TimerLabel" type="Label" parent="."]
@@ -210,6 +216,36 @@ safe_position = Vector3(7.922, 25.331, 64.361)
 [node name="moving_platform_safety2" parent="." instance=ExtResource("19_ltr1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.284, -5.58156, 17.5059)
 safe_position = Vector3(106.442, 2.02, 19.906)
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("20_hy03o")]
+transform = Transform3D(0.970085, -0.0282435, 0.241118, 0.024175, 0.999511, 0.019816, -0.24156, -0.0133942, 0.970293, 32.5041, -0.0374396, 48.5157)
+script = ExtResource("21_ruphi")
+repel_force = 1000.0
+
+[node name="Area3D2" type="Area3D" parent="CharacterBody3D2"]
+transform = Transform3D(-0.982514, 0.100984, -0.156434, -0.102792, -0.994698, 0.00349065, -0.155252, 0.0195097, 0.987682, 25.24, 2.58572, 30.4754)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2/Area3D2"]
+transform = Transform3D(-0.156352, 0.987669, -0.00853604, -0.965789, -0.154702, -0.207922, -0.206657, -0.0242652, 0.97816, 31.9148, 0.986377, -12.2542)
+shape = SubResource("BoxShape3D_18frl")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D2"]
+simplify_path = true
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("20_hy03o")]
+transform = Transform3D(-0.983179, -0.121656, -0.136232, -0.148064, 0.967604, 0.204496, 0.106941, 0.221227, -0.969341, 32.801, -0.102633, 76.4945)
+script = ExtResource("21_ruphi")
+repel_force = 1000.0
+
+[node name="Area3D2" type="Area3D" parent="CharacterBody3D"]
+transform = Transform3D(0.052336, 0.99863, 0, -0.99863, 0.052336, -1.49012e-08, 0, 7.45058e-09, 1, 2.94294, -1.26382, -2.47756)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D2"]
+transform = Transform3D(0.980942, 0.0468762, 0.188323, -0.00682924, 0.978127, -0.207924, -0.193932, 0.202673, 0.959889, 1.02759, 0.393944, 2.64422)
+shape = SubResource("BoxShape3D_18frl")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+simplify_path = true
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]
