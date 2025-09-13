@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var player: Node3D = $"../Ball"
 @onready var chase_area: Area3D = $Area3D2
 @onready var collision_area: Area3D = $ColliArea3D
+@onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var floor_check: RayCast3D = $FloorCheck
 
 # --- NEW: lưu vị trí spawn + timer rơi ---
@@ -62,10 +63,13 @@ func _physics_process(delta):
 		velocity.x = dir.x * chase_speed
 		velocity.z = dir.z * chase_speed
 
+		if anim.current_animation != "fall" or !anim.is_playing():
+			anim.play("fall")
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, chase_speed * 4.0 * delta)
 		velocity.z = move_toward(velocity.z, 0.0, chase_speed * 4.0 * delta)
-
+		if anim.is_playing():
+			anim.stop()
 
 	move_and_slide()
 
@@ -96,3 +100,5 @@ func _reset_to_spawn() -> void:
 	global_transform = _spawn_transform
 	velocity = Vector3.ZERO
 	_is_chasing = false
+	if anim.is_playing():
+		anim.stop()
