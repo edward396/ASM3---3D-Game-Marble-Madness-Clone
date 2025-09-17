@@ -25,8 +25,10 @@ grow_vertical = 2
 [node name="Congrats" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.153
-anchor_right = -0.153
+anchor_left = -0.148549
+anchor_top = -0.078796
+anchor_right = -0.148549
+anchor_bottom = -0.078796
 offset_left = 142.561
 offset_top = 56.9998
 offset_right = 290.561
@@ -40,10 +42,10 @@ metadata/_edit_use_anchors_ = true
 [node name="You Win" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.517804
-anchor_top = 0.669054
-anchor_right = 0.630564
-anchor_bottom = 0.669054
+anchor_left = 0.522255
+anchor_top = 0.590258
+anchor_right = 0.635015
+anchor_bottom = 0.590258
 offset_left = -134.5
 offset_top = -128.5
 offset_right = 86.5
@@ -54,13 +56,20 @@ theme_override_font_sizes/font_size = 50
 text = "YOU WON!"
 metadata/_edit_use_anchors_ = true
 
+[node name="TotalTimeLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 154.0
+offset_right = 298.0
+offset_bottom = 198.0
+
 [node name="PlayAgainButton" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.590504
-anchor_top = 0.743553
-anchor_right = 0.591505
-anchor_bottom = 0.743553
+anchor_left = 0.591988
+anchor_top = 0.82235
+anchor_right = 0.592989
+anchor_bottom = 0.82235
 offset_left = -93.0
 offset_top = -68.5
 offset_right = 34.6626
@@ -74,10 +83,10 @@ metadata/_edit_use_anchors_ = true
 [node name="ExitButton" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.578635
-anchor_top = 0.777938
-anchor_right = 0.578635
-anchor_bottom = 0.777938
+anchor_left = 0.580119
+anchor_top = 0.856735
+anchor_right = 0.580119
+anchor_bottom = 0.856735
 offset_left = -81.0
 offset_top = -9.5
 offset_right = 27.0

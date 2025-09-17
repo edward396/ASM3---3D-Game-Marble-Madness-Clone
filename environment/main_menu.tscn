@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dum7j0gkfxskh"]
+[gd_scene load_steps=6 format=3 uid="uid://dum7j0gkfxskh"]
 
 [ext_resource type="Script" uid="uid://bg6qvse0f5q5n" path="res://scripts/main_menu.gd" id="1_hfmus"]
 [ext_resource type="Texture2D" uid="uid://8en7parecgy6" path="res://assets/marble bg.jpg" id="2_1sy2y"]
 [ext_resource type="Texture2D" uid="uid://b2iqr8pphu81h" path="res://assets/buttons/Play Button.png" id="3_hfmus"]
 [ext_resource type="Texture2D" uid="uid://cd834sf24cfon" path="res://assets/buttons/Quit Button.png" id="4_ycuad"]
+[ext_resource type="Script" uid="uid://cxmbfrl7wtckn" path="res://scripts/scoreboard_menu.gd" id="6_pp1gj"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,45 +13,69 @@ script = ExtResource("1_hfmus")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 156.0
+offset_left = 2.0
 offset_top = -2.0
-offset_right = 1116.0
+offset_right = 1172.0
 offset_bottom = 718.0
 texture = ExtResource("2_1sy2y")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 778.0
-offset_top = 183.0
-offset_right = 1086.0
-offset_bottom = 515.0
+offset_left = 820.0
+offset_top = 296.0
+offset_right = 1128.0
+offset_bottom = 404.0
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 300
 icon = ExtResource("3_hfmus")
 
-[node name="PlayButton2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/icon_max_width = 300
-icon = ExtResource("3_hfmus")
-
-[node name="PlayButton3" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/icon_max_width = 300
-icon = ExtResource("3_hfmus")
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 860.0
-offset_top = 535.0
-offset_right = 1018.0
-offset_bottom = 597.0
+offset_left = 898.0
+offset_top = 418.0
+offset_right = 1056.0
+offset_bottom = 480.0
 
 [node name="ExitButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/icon_max_width = 150
 icon = ExtResource("4_ycuad")
 
-[connection signal="pressed" from="VBoxContainer/PlayButton2" to="." method="_on_play_button_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/PlayButton3" to="." method="_on_play_button_3_pressed"]
+[node name="ScoreboardMenu" type="CanvasLayer" parent="."]
+script = ExtResource("6_pp1gj")
+
+[node name="Panel" type="Panel" parent="ScoreboardMenu"]
+anchors_preset = -1
+anchor_left = 0.0269097
+anchor_top = 0.270062
+anchor_right = 0.8
+anchor_bottom = 0.270062
+offset_left = 394.0
+offset_top = 19.9998
+offset_right = -128.6
+offset_bottom = 424.0
+
+[node name="Header" type="HBoxContainer" parent="ScoreboardMenu/Panel"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 29.0
+offset_right = 346.0
+offset_bottom = 87.0
+
+[node name="RecapLabel" type="Label" parent="ScoreboardMenu/Panel/Header"]
+layout_mode = 2
+
+[node name="Body" type="HBoxContainer" parent="ScoreboardMenu/Panel"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 102.0
+offset_right = 342.0
+offset_bottom = 378.0
+
+[node name="ScoreList" type="ItemList" parent="ScoreboardMenu/Panel/Body"]
+layout_mode = 2
+
+[node name="DetailsLabel" type="Label" parent="ScoreboardMenu/Panel/Body"]
+layout_mode = 2

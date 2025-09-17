@@ -1,0 +1,6 @@
+[
+	{"completed_rounds":3.0,"id":"1758082720-3284008559","partial_time_sec":0.0,"per_round_times":[1.0,3.0,1.0],"status":"winner","total_completed_time_sec":5.0,"ts":"2025-09-17T11:18:40"},
+	{"completed_rounds":3.0,"id":"1758082742-2501919643","partial_time_sec":0.0,"per_round_times":[2.0,1.0,1.0],"status":"winner","total_completed_time_sec":4.0,"ts":"2025-09-17T11:19:02"},
+	{"completed_rounds":3.0,"id":"1758084561-1702162451","partial_time_sec":0.0,"per_round_times":[2.0,1.0,1.0,1.0,1.0],"status":"winner","total_completed_time_sec":6.0,"ts":"2025-09-17T11:49:21"},
+	{"completed_rounds":3.0,"id":"1758084754-1425635826","partial_time_sec":0.0,"per_round_times":[3.0,6.0,1.0],"status":"winner","total_completed_time_sec":10.0,"ts":"2025-09-17T11:52:34"},
+	]

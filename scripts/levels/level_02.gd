@@ -9,13 +9,15 @@ extends Node3D
 @onready var start_sound: AudioStreamPlayer = $StartSound
 @onready var time_up_sound: AudioStreamPlayer = $TimeUpSound
 @onready var countdown_label: Label = $CountDownLabel
-
+@export var round_index: int = 2           
+@export var is_final_round: bool = false 
+@export var next_level_path: String = "res://environment/levels/level_03.tscn"   
 var time_left: int = 60
 var update_timer: Timer
 var is_game_over := false
 
 func _ready():
-	#Play bg music
+	
 	if bg_music and bg_music.stream:
 		bg_music.play()
 	
@@ -87,7 +89,13 @@ func _on_update_time():
 	if time_left == 0:
 		_on_game_over()
 
-#Update Game Over scene later
+func on_round_win():
+	if is_game_over: 
+		return
+	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
+	SaveManager.add_completed_round_time(max(elapsed_sec, 0))
+	get_tree().change_scene_to_file(next_level_path)
+		
 func _on_game_over():
 	if is_game_over: return
 	
@@ -96,7 +104,11 @@ func _on_game_over():
 	if update_timer:
 		update_timer.stop()
 	
+	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
+	SaveManager.mark_game_over_with_partial(max(elapsed_sec, 0))
+	
 	get_tree().paused = true # tạm dừng gameplay
+	
 	game_over_menu.visible = true
 	
 	time_up_sound.play()
