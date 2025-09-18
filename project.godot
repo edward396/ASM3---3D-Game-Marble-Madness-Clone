@@ -14,6 +14,10 @@ config/name="Marble Madness"
 run/main_scene="uid://dum7j0gkfxskh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+SaveManager="*res://scripts/save_manager.gd"
+
 [dotnet]
 
 project/assembly_name="Marble Madness"

@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ciin251ecvwj6"]
+[gd_scene load_steps=15 format=3 uid="uid://ciin251ecvwj6"]
 
 [ext_resource type="Script" uid="uid://ch423d7aciqht" path="res://scripts/levels/level_01.gd" id="1_32ihy"]
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_fmn4l"]
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="2_rdraa"]
 [ext_resource type="Script" uid="uid://cliagejculu8e" path="res://scripts/death_zone.gd" id="3_vuu73"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://scripts/victory_zone.gd" id="4_roo3c"]
+[ext_resource type="PackedScene" uid="uid://cbape77igbyxo" path="res://environment/levels/level_02.tscn" id="7_mdxr4"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="7_sg80t"]
 [ext_resource type="PackedScene" uid="uid://lsn8rnrrejyk" path="res://environment/game_over.tscn" id="8_356wj"]
 [ext_resource type="AudioStream" uid="uid://bl2lbogp7m37m" path="res://assets/sound/backgroundMusicLevel01.ogg" id="8_scq4g"]
@@ -45,7 +46,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_rdraa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.158, -12.1985, -176.787)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, -0.433013, 0.25, 0, 5, 0)
@@ -66,7 +67,7 @@ shape = SubResource("BoxShape3D_rdraa")
 [node name="VictoryZone" type="Area3D" parent="."]
 transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, 0, 0, 0)
 script = ExtResource("4_roo3c")
-NEXT_LEVEL = "uid://cbape77igbyxo"
+next_level = ExtResource("7_mdxr4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VictoryZone"]
 transform = Transform3D(0.999824, -0.0183498, -0.00398634, 0.0183346, 0.999825, -0.00381148, 0.00405549, 0.00373772, 0.999984, -238.088, -16.1609, -155.368)
@@ -130,7 +131,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TestVictoryZone" type="Area3D" parent="."]
 transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, 0, 0, -10.675)
 script = ExtResource("4_roo3c")
-NEXT_LEVEL = "uid://cbape77igbyxo"
+next_level = ExtResource("7_mdxr4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestVictoryZone"]
 transform = Transform3D(0.989304, -0.145675, 0.00745039, 0.145731, 0.984912, -0.09334, 0.0062592, 0.0934275, 0.995605, 2.36049, 0.373393, 18.5097)
