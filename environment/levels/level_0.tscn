@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="1_cinva"]
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_e0pdw"]
-[ext_resource type="Script" uid="uid://lufobhajchfw" path="res://environment/levels/level_0.gd" id="1_oonut"]
+[ext_resource type="Script" path="res://environment/levels/level_0.gd" id="1_oonut"]
 [ext_resource type="Script" uid="uid://cjpsqfbq0gshx" path="res://scripts/victory_zone.gd" id="3_o3a80"]
 [ext_resource type="Script" uid="uid://cliagejculu8e" path="res://scripts/death_zone.gd" id="4_o3a80"]
 [ext_resource type="PackedScene" uid="uid://rur8ocsxec2j" path="res://environment/pause_menu.tscn" id="6_2q60s"]

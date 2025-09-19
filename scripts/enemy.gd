@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var chase_speed: float = 5.0
-@export var repel_force: float = 2000
+@export var repel_force: float = 600.0
 @export var floor_snap: float = 0.3
 @export var fall_timeout_sec: float = 5.0        # <— thời gian chờ ngoài sàn
 
@@ -19,7 +19,7 @@ var _was_on_floor := false
 var _is_chasing := false
 
 func _ready():
-	add_to_group("boss")
+	add_to_group("weak_enemy")
 	chase_area.body_entered.connect(_on_area_entered)
 	chase_area.body_exited.connect(_on_area_exited)
 	collision_area.body_entered.connect(_on_collision_with_body)

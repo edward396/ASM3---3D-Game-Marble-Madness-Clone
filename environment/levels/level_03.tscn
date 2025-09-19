@@ -15,11 +15,11 @@
 [ext_resource type="Script" uid="uid://cj6piewkpv1uf" path="res://environment/platforms/animatable_body_3dDown.gd" id="6_ytdme"]
 [ext_resource type="AudioStream" uid="uid://bvhchhnqv46i0" path="res://assets/sound/start.ogg" id="8_kubyn"]
 [ext_resource type="AudioStream" uid="uid://bgbmfm22f8gtw" path="res://assets/sound/backgroundMusicLevel03.mp3" id="8_rx6uv"]
-[ext_resource type="PackedScene" uid="uid://cqmccfjp74nd8" path="res://ball/character_body_3d.tscn" id="9_mmfcv"]
+[ext_resource type="PackedScene" path="res://ball/character_body_3d.tscn" id="9_mmfcv"]
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="9_rwdn4"]
 [ext_resource type="Script" uid="uid://4orv2v5xpnns" path="res://scripts/final_level_victory_zone.gd" id="10_5ixol"]
 [ext_resource type="PackedScene" uid="uid://c7x1io8m6wyut" path="res://environment/you_win.tscn" id="10_o7h0x"]
-[ext_resource type="Script" uid="uid://nf2rl2d37kyj" path="res://scripts/character_body_3d.gd" id="10_uy72r"]
+[ext_resource type="Script" path="res://scripts/character_body_3d.gd" id="10_uy72r"]
 [ext_resource type="PackedScene" uid="uid://bln1w57vw4mmj" path="res://environment/victory_menu.tscn" id="16_uy72r"]
 [ext_resource type="PackedScene" uid="uid://c4um0fgvxp4gk" path="res://environment/platforms/moving_platform_safety_3.tscn" id="20_sv13p"]
 
