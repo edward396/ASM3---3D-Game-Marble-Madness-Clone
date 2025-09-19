@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1cdx3pam7smu"]
+[gd_scene load_steps=15 format=3 uid="uid://b1cdx3pam7smu"]
 
 [ext_resource type="PackedScene" uid="uid://buf1kiwp2rx1w" path="res://ball/ball.tscn" id="1_cinva"]
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_e0pdw"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="8_8jp6f"]
 [ext_resource type="AudioStream" uid="uid://bvhchhnqv46i0" path="res://assets/sound/start.ogg" id="9_0qdra"]
 [ext_resource type="PackedScene" uid="uid://bln1w57vw4mmj" path="res://environment/victory_menu.tscn" id="10_2q60s"]
+[ext_resource type="Texture2D" uid="uid://dcvmdy2yt0fme" path="res://assets/UI/Tutorial.png" id="11_6stp4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_siqur"]
 margin = 0.0
@@ -106,21 +107,17 @@ metadata/_edit_use_anchors_ = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="TutorialPanel" type="Panel" parent="UI"]
-offset_right = 523.0
-offset_bottom = 222.0
+offset_right = 324.0
+offset_bottom = 328.0
 
-[node name="Label" type="Label" parent="UI/TutorialPanel"]
+[node name="TutorialImage" type="TextureRect" parent="UI/TutorialPanel"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 17.0
-offset_right = 515.0
-offset_bottom = 204.0
-theme_override_font_sizes/font_size = 25
-text = "Welcome to the Tutorial!
-- Use WASD / Arrow Keys to move the ball.
-- Press SPACE to jump.
-- Press ESC to pause the game.
-Reach the goal to complete the level!"
+offset_left = -12.0
+offset_top = -33.0
+offset_right = 373.0
+offset_bottom = 359.0
+texture = ExtResource("11_6stp4")
+expand_mode = 1
 
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
