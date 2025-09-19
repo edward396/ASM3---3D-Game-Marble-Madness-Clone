@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbape77igbyxo"]
+[gd_scene load_steps=30 format=3 uid="uid://cbape77igbyxo"]
 
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_2bpfq"]
 [ext_resource type="Script" uid="uid://upojrra7tnjf" path="res://scripts/levels/level_02.gd" id="1_gu1mg"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bvhchhnqv46i0" path="res://assets/sound/start.ogg" id="8_2obrr"]
 [ext_resource type="AudioStream" uid="uid://dp1clvd7f2wlf" path="res://assets/sound/beep.mp3" id="9_x88r0"]
 [ext_resource type="PackedScene" uid="uid://cfborojlxsgr7" path="res://environment/levels/level_03.tscn" id="13_ruphi"]
+[ext_resource type="PackedScene" uid="uid://bln1w57vw4mmj" path="res://environment/victory_menu.tscn" id="16_18frl"]
 [ext_resource type="PackedScene" uid="uid://ckgxyvsvgtt8l" path="res://environment/platforms/moving_platform_safety.tscn" id="18_2vcbr"]
 [ext_resource type="PackedScene" uid="uid://d0unmwvvnu5jl" path="res://environment/platforms/moving_platform_safety_2.tscn" id="19_ltr1k"]
 [ext_resource type="PackedScene" uid="uid://cqmccfjp74nd8" path="res://ball/character_body_3d.tscn" id="20_hy03o"]
@@ -158,6 +159,8 @@ autostart = true
 [node name="PauseMenu" parent="." instance=ExtResource("5_mianr")]
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_hmu2k")]
+
+[node name="VictoryMenu" parent="." instance=ExtResource("16_18frl")]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2bpfq")

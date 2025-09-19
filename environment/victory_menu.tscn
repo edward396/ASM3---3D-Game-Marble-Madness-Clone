@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bln1w57vw4mmj"]
+
+[ext_resource type="Script" uid="uid://dh6scqo3nq8yy" path="res://scripts/victory_menu.gd" id="1_oe0av"]
+[ext_resource type="AudioStream" uid="uid://8i5kg1v65iji" path="res://assets/sound/victory_sound.mp3" id="2_44f03"]
+
+[node name="VictoryMenu" type="CanvasLayer"]
+script = ExtResource("1_oe0av")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -174.5
+offset_right = 168.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VictoryLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -74.0
+offset_right = 125.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "VICTORY!!!"
+
+[node name="NextButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 73.5
+offset_top = 214.5
+offset_right = 269.5
+offset_bottom = 264.5
+theme_override_font_sizes/font_size = 30
+text = "Click To Next"
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_44f03")

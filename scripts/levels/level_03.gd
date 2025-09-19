@@ -9,9 +9,10 @@ extends Node3D
 @onready var start_sound: AudioStreamPlayer = $StartSound
 @onready var time_up_sound: AudioStreamPlayer = $TimeUpSound
 @onready var countdown_label: Label = $CountDownLabel
-@export var round_index: int = 3           
-@export var is_final_round: bool = true    
-@export var next_level_path: String = ""    
+
+@export var round_index: int = 3
+@export var is_final_round: bool = true
+@export var next_level_path: String = ""
 
 var time_left: int = 60
 var update_timer: Timer
@@ -46,24 +47,24 @@ func _ready():
 	_start_countdown()
 
 func _start_countdown() -> void:
-	# Pause gameplay, nhưng UI & âm thanh vẫn chạy
+	# Pause gameplay, but UI & sound still running
 	get_tree().paused = true
 	countdown_label.visible = true
 	
 	for n in [3, 2, 1]:
 		countdown_label.text = str(n)
 		beep_sound.play()
-		await get_tree().create_timer(1.0, true).timeout # true = chạy khi paused
+		await get_tree().create_timer(1.0, true).timeout # true = run when paused
 		
 	countdown_label.text = "GO!"
 	start_sound.play()
 	await get_tree().create_timer(0.5, true).timeout
 
-	# Bắt đầu chơi
+	# start game
 	countdown_label.visible = false
 	get_tree().paused = false
-	update_timer.start() # bắt đầu tick mỗi giây
-	game_timer.start() # bắt đầu mốc hết giờ
+	update_timer.start() # start ticking each sec
+	game_timer.start()
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
@@ -90,13 +91,13 @@ func _on_update_time():
 	if time_left == 0:
 		_on_game_over()
 
-func on_round_win():
-	if is_game_over: 
-		return
+# func on_round_win():
+# 	if is_game_over:
+# 		return
 
-	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
-	SaveManager.add_completed_round_time(max(elapsed_sec, 0))
-	SaveManager.mark_winner()
+# 	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
+# 	SaveManager.add_completed_round_time(max(elapsed_sec, 0))
+# 	SaveManager.mark_winner()
 		
 func _on_game_over():
 	if is_game_over: return
@@ -108,11 +109,28 @@ func _on_game_over():
 	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
 	SaveManager.mark_game_over_with_partial(max(elapsed_sec, 0))
 	
-	get_tree().paused = true # tạm dừng gameplay
+	get_tree().paused = true # pause gameplay
 	game_over_menu.visible = true
 	
 	time_up_sound.play()
 
+func on_round_win():
+	if is_game_over:
+		return
+	is_game_over = true
+
+	# stop timer
+	if update_timer:
+		update_timer.stop()
+	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
+	SaveManager.add_completed_round_time(max(elapsed_sec, 0))
+
+	# mark winner
+	SaveManager.mark_winner()
+
+	# go to YouWin screen directly
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://ui/YouWinScreen.tscn")
 	
 func format_time(seconds: int) -> String:
 	var mins = seconds / 60
