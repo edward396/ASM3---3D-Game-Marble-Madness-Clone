@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6tsqyfh0mtos"
-path="res://.godot/imported/Resume Button.png-800292f8d40479010c663c5c6fbe8b44.ctex"
+uid="uid://dimnuro6ynujt"
+path="res://.godot/imported/level_completed.jpg-2102c35fc940de16ca9a4958b19c6f48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Resume Button.png"
-dest_files=["res://.godot/imported/Resume Button.png-800292f8d40479010c663c5c6fbe8b44.ctex"]
+source_file="res://assets/UI/level_completed.jpg"
+dest_files=["res://.godot/imported/level_completed.jpg-2102c35fc940de16ca9a4958b19c6f48.ctex"]
 
 [params]
 

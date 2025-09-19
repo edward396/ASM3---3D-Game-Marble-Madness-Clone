@@ -1,7 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://bln1w57vw4mmj"]
+[gd_scene load_steps=10 format=3 uid="uid://bln1w57vw4mmj"]
 
 [ext_resource type="Script" uid="uid://dh6scqo3nq8yy" path="res://scripts/victory_menu.gd" id="1_oe0av"]
 [ext_resource type="AudioStream" uid="uid://8i5kg1v65iji" path="res://assets/sound/victory_sound.mp3" id="2_44f03"]
+[ext_resource type="Texture2D" uid="uid://dimnuro6ynujt" path="res://assets/UI/level_completed.jpg" id="2_jxip7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44f03"]
+bg_color = Color(0.165766, 0.736418, 0.466939, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxip7"]
+bg_color = Color(0.0821328, 0.39509, 0.244205, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgjed"]
+bg_color = Color(0.134067, 0.586265, 0.369493, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ic5t"]
+bg_color = Color(0.321353, 0.662849, 0.908071, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unttf"]
+bg_color = Color(0.110306, 0.388431, 0.57086, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl6jy"]
+bg_color = Color(0.180392, 0.52549, 0.756863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="VictoryMenu" type="CanvasLayer"]
 script = ExtResource("1_oe0av")
@@ -19,7 +92,24 @@ offset_bottom = 174.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="VictoryImage" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -235.5
+offset_right = 290.0
+offset_bottom = 235.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jxip7")
+expand_mode = 1
+
 [node name="VictoryLabel" type="Label" parent="Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,20 +126,41 @@ theme_override_font_sizes/font_size = 50
 text = "VICTORY!!!"
 
 [node name="NextButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 58.5
-offset_top = 209.5
-offset_right = 279.5
-offset_bottom = 259.5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 140.0
+offset_right = 115.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_44f03")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jxip7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lgjed")
 text = "Next Round"
 
 [node name="BackButton" type="Button" parent="Panel"]
-offset_left = 24.5
-offset_top = 207.5
-offset_right = 310.5
-offset_bottom = 257.5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 140.0
+offset_right = 157.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ic5t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_unttf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sl6jy")
 text = "Back to Main Menu"
 
 [node name="VictorySound" type="AudioStreamPlayer" parent="."]

@@ -1,9 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7x1io8m6wyut"]
+[gd_scene load_steps=10 format=3 uid="uid://c7x1io8m6wyut"]
 
 [ext_resource type="Script" uid="uid://kebeh3cumj54" path="res://scripts/you_win.gd" id="1_wxm8x"]
-[ext_resource type="Texture2D" uid="uid://b2iqr8pphu81h" path="res://assets/buttons/Play Button.png" id="2_qom6p"]
-[ext_resource type="Texture2D" uid="uid://5i2dx8l5rskp" path="res://assets/buttons/Exit Button.png" id="3_nucah"]
+[ext_resource type="Texture2D" uid="uid://dtpvhirr8fa2g" path="res://assets/UI/victory.jpg" id="4_nucah"]
 [ext_resource type="AudioStream" uid="uid://jx06nmjyyl8f" path="res://assets/sound/youWin.mp3" id="4_qom6p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxm8x"]
+bg_color = Color(0.165766, 0.736418, 0.466939, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qom6p"]
+bg_color = Color(0.0821328, 0.39509, 0.244205, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nucah"]
+bg_color = Color(0.134067, 0.586265, 0.369493, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7ld2"]
+bg_color = Color(1, 0.463645, 0.369561, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixwh8"]
+bg_color = Color(0.588255, 0.08158, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n26c4"]
+bg_color = Color(0.906766, 0.148949, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="YouWin" type="CanvasLayer"]
 layer = 10
@@ -22,80 +93,69 @@ offset_bottom = 174.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Congrats" type="Label" parent="Panel"]
+[node name="VictoryImage" type="TextureRect" parent="Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.148549
-anchor_top = -0.078796
-anchor_right = -0.148549
-anchor_bottom = -0.078796
-offset_left = 142.561
-offset_top = 56.9998
-offset_right = 290.561
-offset_bottom = 105.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -410.0
+offset_right = 578.0
+offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Congrats!"
-metadata/_edit_use_anchors_ = true
-
-[node name="You Win" type="Label" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.522255
-anchor_top = 0.590258
-anchor_right = 0.635015
-anchor_bottom = 0.590258
-offset_left = -134.5
-offset_top = -128.5
-offset_right = 86.5
-offset_bottom = -51.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "YOU WON!"
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("4_nucah")
+expand_mode = 1
 
 [node name="TotalTimeLabel" type="Label" parent="Panel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.262
+anchor_bottom = -0.262
 offset_left = 49.0
-offset_top = 154.0
+offset_top = 245.438
 offset_right = 298.0
-offset_bottom = 198.0
+offset_bottom = 289.438
 
 [node name="PlayAgainButton" type="Button" parent="Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.591988
-anchor_top = 0.82235
-anchor_right = 0.592989
-anchor_bottom = 0.82235
-offset_left = -93.0
-offset_top = -68.5
-offset_right = 34.6626
-offset_bottom = -16.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 222.0
+offset_right = 182.0
+offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/icon_max_width = 120
-icon = ExtResource("2_qom6p")
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_wxm8x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qom6p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nucah")
+text = "Play Again"
 
 [node name="ExitButton" type="Button" parent="Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.580119
-anchor_top = 0.856735
-anchor_right = 0.580119
-anchor_bottom = 0.856735
-offset_left = -81.0
-offset_top = -9.5
-offset_right = 27.0
-offset_bottom = 36.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = 224.0
+offset_right = -82.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/icon_max_width = 100
-icon = ExtResource("3_nucah")
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_y7ld2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ixwh8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n26c4")
+text = "Exit"
 
 [node name="YouWinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qom6p")
