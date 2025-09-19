@@ -11,6 +11,9 @@ func _ready():
 	exit_btn.pressed.connect(_on_exit_pressed)
 
 func open_menu():
+	if get_tree() == null:
+		return
+		
 	visible = true
 	get_tree().paused = true # pause for the buttons to work
 	play_again_btn.grab_focus()
@@ -20,7 +23,7 @@ func close_menu():
 	get_tree().paused = false # unpause
 
 func _on_play_again_pressed():
-	get_tree().paused = false
+	# get_tree().paused = false
 	get_tree().change_scene_to_file("res://environment/levels/level_01.tscn")
 
 func _on_exit_pressed():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfborojlxsgr7"]
+[gd_scene load_steps=27 format=3 uid="uid://cfborojlxsgr7"]
 
 [ext_resource type="MeshLibrary" uid="uid://dkmfn84yaexcd" path="res://assets/models/blocks.meshlib" id="1_r1ugn"]
 [ext_resource type="Script" uid="uid://delmty8i1so6g" path="res://scripts/levels/level_03.gd" id="1_rx6uv"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://4orv2v5xpnns" path="res://scripts/final_level_victory_zone.gd" id="10_5ixol"]
 [ext_resource type="PackedScene" uid="uid://c7x1io8m6wyut" path="res://environment/you_win.tscn" id="10_o7h0x"]
 [ext_resource type="Script" uid="uid://nf2rl2d37kyj" path="res://scripts/character_body_3d.gd" id="10_uy72r"]
+[ext_resource type="PackedScene" uid="uid://bln1w57vw4mmj" path="res://environment/victory_menu.tscn" id="16_uy72r"]
 [ext_resource type="PackedScene" uid="uid://c4um0fgvxp4gk" path="res://environment/platforms/moving_platform_safety_3.tscn" id="20_sv13p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cfje"]
@@ -217,6 +218,8 @@ autostart = true
 [node name="PauseMenu" parent="." instance=ExtResource("5_dq3jb")]
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_fr5b1")]
+
+[node name="VictoryMenu" parent="." instance=ExtResource("16_uy72r")]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_rx6uv")

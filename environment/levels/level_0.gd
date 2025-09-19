@@ -9,6 +9,7 @@ extends Node3D
 @onready var victory_menu: CanvasLayer = $VictoryMenu
 @onready var victory_label: Label = $VictoryMenu/Panel/VictoryLabel
 @onready var next_button: Button = $VictoryMenu/Panel/NextButton
+@onready var back_button: Button = $VictoryMenu/Panel/BackButton
 
 @onready var tutorial_panel: Panel = $UI/TutorialPanel
 
@@ -59,12 +60,14 @@ func _toggle_pause():
 # Victory
 func on_round_win():
 	get_tree().paused = true
-
 	victory_menu.visible = true
+	victory_menu.play_victory()
 
-	next_button.pressed.connect(
-		func():
-			get_tree().paused = false
-			get_tree().change_scene_to_file("res://environment/main_menu.tscn"),
-		CONNECT_ONE_SHOT
-	)
+	# Back to Main Menu
+	back_button.visible = true
+	next_button.visible = false
+	back_button.pressed.connect(_on_back_pressed, CONNECT_ONE_SHOT)
+
+func _on_back_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://environment/main_menu.tscn")

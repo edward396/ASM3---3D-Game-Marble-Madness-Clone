@@ -37,12 +37,20 @@ text = "VICTORY!!!"
 
 [node name="NextButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 73.5
-offset_top = 214.5
-offset_right = 269.5
-offset_bottom = 264.5
+offset_left = 58.5
+offset_top = 209.5
+offset_right = 279.5
+offset_bottom = 259.5
 theme_override_font_sizes/font_size = 30
-text = "Click To Next"
+text = "Next Round"
+
+[node name="BackButton" type="Button" parent="Panel"]
+offset_left = 24.5
+offset_top = 207.5
+offset_right = 310.5
+offset_bottom = 257.5
+theme_override_font_sizes/font_size = 30
+text = "Back to Main Menu"
 
 [node name="VictorySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_44f03")

@@ -13,6 +13,7 @@ extends Node3D
 @onready var victory_menu: CanvasLayer = $VictoryMenu
 @onready var victory_label: Label = $VictoryMenu/Panel/VictoryLabel
 @onready var next_button: Button = $VictoryMenu/Panel/NextButton
+@onready var back_button: Button = $VictoryMenu/Panel/BackButton
 
 @export var round_index: int = 2
 @export var is_final_round: bool = false
@@ -96,13 +97,6 @@ func _on_update_time():
 	
 	if time_left == 0:
 		_on_game_over()
-
-# func on_round_win():
-# 	if is_game_over:
-# 		return
-# 	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
-# 	SaveManager.add_completed_round_time(max(elapsed_sec, 0))
-# 	get_tree().change_scene_to_file(next_level_path)
 		
 func _on_game_over():
 	if is_game_over: return
@@ -122,20 +116,32 @@ func _on_game_over():
 	time_up_sound.play()
 
 func on_round_win():
-	if is_game_over:
-		return
+	if is_game_over: return
 	is_game_over = true
 
 	get_tree().paused = true
 	victory_menu.visible = true
 	victory_menu.play_victory()
-	next_button.pressed.connect(_on_next_pressed, CONNECT_ONE_SHOT)
+
+	if Globals.is_free_play:
+		# if Play By Level -> Back to Main Menu
+		back_button.visible = true
+		next_button.visible = false
+		back_button.pressed.connect(_on_back_pressed, CONNECT_ONE_SHOT)
+	else:
+		# if Normal Play -> Victory Scene and Next Round
+		back_button.visible = false
+		next_button.visible = true
+		next_button.pressed.connect(_on_next_pressed, CONNECT_ONE_SHOT)
 
 func _on_next_pressed():
 	get_tree().paused = false
 	if next_level_path != "":
 		get_tree().change_scene_to_file(next_level_path)
 
+func _on_back_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://environment/main_menu.tscn")
 	
 func format_time(seconds: int) -> String:
 	var mins = seconds / 60

@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 SaveManager="*res://scripts/save_manager.gd"
+Globals="*res://globals.gd"
 
 [dotnet]
 

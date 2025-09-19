@@ -5,6 +5,10 @@ extends Area3D
 @onready var level = $".."
 func _on_body_entered(body):
 	if body.name == "Ball" and you_win:
-		level.on_round_win()
-		you_win.open_menu()
-		you_win_sound.play()
+		if Globals.is_free_play:
+			level.on_round_win()
+		else:
+			if you_win:
+				you_win.open_menu()
+				if you_win_sound:
+					you_win_sound.play()
