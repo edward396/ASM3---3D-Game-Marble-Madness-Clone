@@ -97,7 +97,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_gu1mg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286474, 2.06017, 1.59437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.341, 26.1733, 64.6389)
 
 [node name="Enemy" parent="." instance=ExtResource("4_hacgo")]
 transform = Transform3D(-0.627963, -0.778243, 0, 0.778243, -0.627963, 0, 0, 0, 1, -42.6937, -7.07578, -11.0226)
@@ -213,7 +213,7 @@ theme_override_font_sizes/font_size = 50
 text = "Round 2"
 
 [node name="MovingPlatformSafety" parent="." instance=ExtResource("18_2vcbr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03621, 17.1149, 52.2143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.33204, 22.765, 52.2143)
 safe_position = Vector3(7.922, 25.331, 64.361)
 
 [node name="moving_platform_safety2" parent="." instance=ExtResource("19_ltr1k")]
