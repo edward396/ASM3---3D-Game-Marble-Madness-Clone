@@ -288,8 +288,8 @@ anchor_right = 0.8
 anchor_bottom = 0.270062
 offset_left = 133.0
 offset_top = -72.0002
-offset_right = -495.6
-offset_bottom = 332.0
+offset_right = -757.6
+offset_bottom = -72.0002
 
 [node name="ScoreBoard" type="TextureRect" parent="ScoreboardMenu/Panel"]
 layout_mode = 0
