@@ -97,7 +97,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_gu1mg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.341, 26.1733, 64.6389)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173351, 2.49788, 1.98411)
 
 [node name="Enemy" parent="." instance=ExtResource("4_hacgo")]
 transform = Transform3D(-0.627963, -0.778243, 0, 0.778243, -0.627963, 0, 0, 0, 1, -42.6937, -7.07578, -11.0226)
