@@ -44,7 +44,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 4, 0)
 
 [node name="Ball" parent="." instance=ExtResource("1_cinva")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.3795, 10.0632, -162.928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.863137, 3.40714, 9.54266)
 
 [node name="VictoryZone" type="Area3D" parent="."]
 transform = Transform3D(0.994301, 0, -0.106611, 0, 1, 0, 0.106611, 0, 0.994301, -80.1626, 9.52778, -166.21)

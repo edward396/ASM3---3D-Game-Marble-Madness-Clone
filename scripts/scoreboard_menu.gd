@@ -74,7 +74,7 @@ func _refresh() -> void:
 			recap_lbl.text = "No records yet."
 		else:
 			var top_summary: String = ""
-			var top_n: int = min(20, list.size())  # Show at most 20 records
+			var top_n: int = min(15, list.size())  # Show at most 20 records
 			for i in range(top_n):
 				var entry: Dictionary = list[i]
 				var best_rounds: int = int(entry.get("completed_rounds", 0))

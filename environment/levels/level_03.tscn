@@ -88,7 +88,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, -3, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_o7h0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8407, -33.7036, -320.312)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0432332, 2.06286, 0.0934725)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("9_mmfcv")]
 transform = Transform3D(1, 0, 0, 0, 0.978256, 0.2074, 0, -0.2074, 0.978256, 12.5823, -16.1479, -109.034)

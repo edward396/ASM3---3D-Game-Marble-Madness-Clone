@@ -292,6 +292,7 @@ offset_right = -495.6
 offset_bottom = 332.0
 
 [node name="ScoreBoard" type="TextureRect" parent="ScoreboardMenu/Panel"]
+layout_mode = 0
 offset_left = -136.0
 offset_top = -120.0
 offset_right = 365.0
