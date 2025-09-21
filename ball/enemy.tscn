@@ -21,6 +21,7 @@ material_override = SubResource("StandardMaterial3D_lyr5s")
 mesh = ExtResource("3_5dp3w")
 
 [node name="FloorCheck" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_w0m6g")

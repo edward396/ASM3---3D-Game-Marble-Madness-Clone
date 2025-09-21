@@ -32,6 +32,7 @@ material_override = SubResource("StandardMaterial3D_ww0x1")
 mesh = ExtResource("1_nwasv")
 
 [node name="CameraRig" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0524336, -0.050467, -4.76837e-07)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(1, 0, 0, 0, 0.858002, 0.513646, 0, -0.513646, 0.858002, 0.00887048, 3.16025, 3.44957)

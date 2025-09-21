@@ -1,23 +1,34 @@
 extends Control
 
-func _ready():
-	$VBoxContainer/PlayButton.pressed.connect(_on_play_button_pressed)
-	$VBoxContainer/PlayButton2.pressed.connect(_on_play_button_2_pressed)
-	$VBoxContainer/PlayButton3.pressed.connect(_on_play_button_3_pressed)
+@onready var level_menu = $LevelMenu
 
+func _ready():
+	$VBoxContainer/TutorialButton.pressed.connect(_on_tutorial_button_pressed)
+	$VBoxContainer/PlayButton.pressed.connect(_on_play_button_pressed)
+	$VBoxContainer/PlayByLevelButton.pressed.connect(_on_play_by_level_button_pressed)
 	$VBoxContainer2/ExitButton.pressed.connect(_on_exit_button_pressed)
+	$ScoreboardMenu.open_menu()
+	
+	level_menu.visible = false
+	
+	$LevelMenu/Level1Button.pressed.connect(func(): _start_level("res://environment/levels/level_01.tscn"))
+	$LevelMenu/Level2Button.pressed.connect(func(): _start_level("res://environment/levels/level_02.tscn"))
+	$LevelMenu/Level3Button.pressed.connect(func(): _start_level("res://environment/levels/level_03.tscn"))
+
+func _on_tutorial_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://environment/levels/level_0.tscn")
 
 func _on_play_button_pressed():
+	Globals.is_free_play = false
 	get_tree().change_scene_to_file("res://environment/levels/level_01.tscn")
 
 func _on_exit_button_pressed():
 	print("Exit button pressed")
-
 	get_tree().quit()
 
+func _on_play_by_level_button_pressed() -> void:
+	level_menu.visible = !level_menu.visible
 
-func _on_play_button_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://environment/levels/level_02.tscn")
-
-func _on_play_button_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://environment/levels/level_03.tscn")
+func _start_level(path: String):
+	Globals.is_free_play = true
+	get_tree().change_scene_to_file(path)

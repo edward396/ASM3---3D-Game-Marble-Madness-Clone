@@ -1,8 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://rur8ocsxec2j"]
+[gd_scene load_steps=9 format=3 uid="uid://rur8ocsxec2j"]
 
 [ext_resource type="Script" uid="uid://bf5ymquuqa0y6" path="res://scripts/pause_menu.gd" id="1_6pryn"]
-[ext_resource type="Texture2D" uid="uid://c6tsqyfh0mtos" path="res://assets/buttons/Resume Button.png" id="1_qrl3l"]
-[ext_resource type="Texture2D" uid="uid://5i2dx8l5rskp" path="res://assets/buttons/Exit Button.png" id="2_6pryn"]
+[ext_resource type="Texture2D" uid="uid://cqr2kmx2sxxnh" path="res://assets/UI/Paused.png" id="2_6pryn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrl3l"]
+bg_color = Color(8.27849e-06, 0.720919, 0.938951, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pryn"]
+bg_color = Color(1.92523e-06, 0.375021, 0.495857, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46ui4"]
+bg_color = Color(1.82897e-06, 0.545606, 0.714208, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxk1u"]
+bg_color = Color(0.975697, 0.482302, 0.413482, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pf7c"]
+bg_color = Color(0.613201, 0.136135, 0.0948922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qad1p"]
+bg_color = Color(0.867146, 0.232238, 0.172718, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_6pryn")
@@ -31,49 +102,39 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Paused" type="Label" parent="Control/Panel"]
+[node name="Paused" type="TextureRect" parent="Control/Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.378338
+anchor_top = -0.17033
+anchor_right = 0.624629
+anchor_bottom = 0.384615
 offset_left = -49.5
 offset_right = 55.5
 offset_bottom = 42.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
-text = "Paused"
+texture = ExtResource("2_6pryn")
+expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ResumeButton" type="Button" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.5
-offset_top = -45.0
-offset_right = 64.5
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/icon_max_width = 120
-icon = ExtResource("1_qrl3l")
-metadata/_edit_use_anchors_ = true
+offset_left = 114.0
+offset_top = 75.0
+offset_right = 231.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_qrl3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6pryn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_46ui4")
+text = "RESUME"
 
 [node name="ExitButton" type="Button" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -51.5
-offset_top = 14.0
-offset_right = 56.5
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/icon_max_width = 100
-icon = ExtResource("2_6pryn")
-metadata/_edit_use_anchors_ = true
+offset_left = 142.0
+offset_top = 124.0
+offset_right = 202.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_bxk1u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pf7c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qad1p")
+text = "EXIT"

@@ -55,7 +55,18 @@ func respawn():
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
-		print('yes')
 		var repel_direction = (global_transform.origin - body.global_transform.origin).normalized()  # Hướng từ người chơi ra kẻ thù
-		var repel_force = 500.0  # Độ mạnh của lực đẩy
-		apply_central_impulse(repel_direction * repel_force)   # Replace with function body.
+		var repel_force = 800.0  
+		apply_central_impulse(repel_direction * repel_force) 
+	
+	
+	if body.is_in_group("boss"):
+		var repel_direction = (global_transform.origin - body.global_transform.origin).normalized()  # Hướng từ người chơi ra kẻ thù
+		var repel_force = 2000.0 
+		apply_central_impulse(repel_direction * repel_force) 
+
+	# Add this new condition for weak enemies
+	if body.is_in_group("weak_enemy"):
+		var repel_direction = (global_transform.origin - body.global_transform.origin).normalized()
+		var repel_force = 600.0  # No knockback for weak enemies
+		apply_central_impulse(repel_direction * repel_force)

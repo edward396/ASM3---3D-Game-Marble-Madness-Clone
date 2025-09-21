@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dud4tqqhu7df1"]
+
+[node name="MovingPlatformSafety_tscn" type="Node2D"]

@@ -10,12 +10,23 @@ extends Node3D
 @onready var time_up_sound: AudioStreamPlayer = $TimeUpSound
 @onready var countdown_label: Label = $CountDownLabel
 
+@onready var victory_menu: CanvasLayer = $VictoryMenu
+@onready var victory_label: Label = $VictoryMenu/Panel/VictoryLabel
+@onready var next_button: Button = $VictoryMenu/Panel/NextButton
+@onready var back_button: Button = $VictoryMenu/Panel/BackButton
+
+@export var round_index: int = 2
+@export var is_final_round: bool = false
+@export var next_level_path: String = "res://environment/levels/level_03.tscn"
+
 var time_left: int = 60
 var update_timer: Timer
 var is_game_over := false
 
 func _ready():
-	#Play bg music
+	victory_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	victory_menu.visible = false
+	
 	if bg_music and bg_music.stream:
 		bg_music.play()
 	
@@ -86,8 +97,7 @@ func _on_update_time():
 	
 	if time_left == 0:
 		_on_game_over()
-
-#Update Game Over scene later
+		
 func _on_game_over():
 	if is_game_over: return
 	
@@ -96,11 +106,42 @@ func _on_game_over():
 	if update_timer:
 		update_timer.stop()
 	
+	var elapsed_sec = int(game_timer.wait_time) - max(time_left, 0)
+	SaveManager.mark_game_over_with_partial(max(elapsed_sec, 0))
+	
 	get_tree().paused = true # tạm dừng gameplay
+	
 	game_over_menu.visible = true
 	
 	time_up_sound.play()
 
+func on_round_win():
+	if is_game_over: return
+	is_game_over = true
+
+	get_tree().paused = true
+	victory_menu.visible = true
+	victory_menu.play_victory()
+
+	if Globals.is_free_play:
+		# if Play By Level -> Back to Main Menu
+		back_button.visible = true
+		next_button.visible = false
+		back_button.pressed.connect(_on_back_pressed, CONNECT_ONE_SHOT)
+	else:
+		# if Normal Play -> Victory Scene and Next Round
+		back_button.visible = false
+		next_button.visible = true
+		next_button.pressed.connect(_on_next_pressed, CONNECT_ONE_SHOT)
+
+func _on_next_pressed():
+	get_tree().paused = false
+	if next_level_path != "":
+		get_tree().change_scene_to_file(next_level_path)
+
+func _on_back_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://environment/main_menu.tscn")
 	
 func format_time(seconds: int) -> String:
 	var mins = seconds / 60

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnrksx4s1wr3e"]
+
+[ext_resource type="PackedScene" uid="uid://bqfo0bja7oqvc" path="res://assets/models/godot_plush_model.glb" id="1_qavg1"]
+[ext_resource type="Texture2D" uid="uid://7c1j423jmch4" path="res://assets/models/godot_plush_albedo.png" id="2_hrqdu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07eqh"]
+albedo_texture = ExtResource("2_hrqdu")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hrqdu"]
+radius = 0.724377
+height = 1.88302
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07eqh"]
+radius = 0.913482
+height = 1.90161
+
+[node name="godot_plush_model" instance=ExtResource("1_qavg1")]
+
+[node name="Skeleton3D" parent="Rig" index="0"]
+bones/0/rotation = Quaternion(0.0695865, 0.0695866, -0.00486596, 0.995134)
+bones/1/rotation = Quaternion(0.000542667, -0.0428615, 0.540813, -0.84005)
+bones/2/rotation = Quaternion(0.237215, 1.75613e-07, -2.75586e-09, 0.971457)
+bones/4/rotation = Quaternion(-0.000542672, -0.0428615, 0.540813, 0.84005)
+bones/5/rotation = Quaternion(0.119222, -2.05008e-07, 3.47948e-08, 0.992868)
+bones/7/rotation = Quaternion(0.995134, -0.00486597, -0.0695866, -0.0695866)
+bones/8/rotation = Quaternion(-0.26097, -0.00625246, -0.091285, 0.961001)
+bones/9/position = Vector3(-3.33083e-08, 0.153684, -1.23515e-08)
+bones/9/rotation = Quaternion(0.123899, -0.214617, 0.0274412, 0.968419)
+bones/10/position = Vector3(-3.4176e-09, 0.207547, -5.71803e-09)
+bones/10/rotation = Quaternion(-0.458251, -5.05235e-05, 8.52508e-05, 0.888823)
+bones/11/position = Vector3(-7.28638e-09, 0.251236, -2.03372e-08)
+bones/11/rotation = Quaternion(-0.000106263, 0.932428, -0.361356, 4.76573e-05)
+bones/12/rotation = Quaternion(-0.260995, 0.00597631, 0.0912485, 0.960999)
+bones/13/position = Vector3(-1.63072e-08, 0.153684, -3.30356e-09)
+bones/13/rotation = Quaternion(0.485043, 0.187894, -0.107585, 0.847263)
+bones/14/position = Vector3(1.86051e-09, 0.207547, -3.29986e-08)
+bones/14/rotation = Quaternion(-0.458251, 0.000165632, -2.59477e-05, 0.888823)
+bones/15/position = Vector3(-5.61806e-09, 0.251236, -3.5407e-08)
+bones/15/rotation = Quaternion(-1.85061e-05, 0.932428, -0.361356, 0.000274284)
+
+[node name="GodotPlushMesh" parent="Rig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_07eqh")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "fall"
+
+[node name="ColliArea3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColliArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0309334, 0.710641, -0.140718)
+shape = SubResource("CapsuleShape3D_hrqdu")
+
+[node name="FloorCheck" type="RayCast3D" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.823843, 0)
+shape = SubResource("CapsuleShape3D_07eqh")
